@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NaD Benchmarks 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="styles/homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+
+    <script src="https://kit.fontawesome.com/2f43c56358.js" crossorigin="anonymous"></script>
+    <script src= "script.js"></script>
+    <script src= "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://unpkg.com/htmlincludejs"></script> 
+
+  </head>
+
+  <body style="background-color: white;">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <div class="top-border">
+      
+    </div>
+    <div class="header">
+
+      <div class="left-section">
+        <h4>NaD Benchmarks 2</h4>
+
+      </div>
+
+      <!-- Add search bar -->
+      <div class="row height justify-content-center align-items-center middle-section">
+        <div class="col-md-8">
+          <div class="search">
+           <i class="fa fa-search"></i>
+            <input type="text" id="myInput" onkeyup="myFunction()" onclick="myFunction()" class="form-control" placeholder="Search for a dataset">
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- HEADER/ NAV BAR -->
+      <div class="right-section">
+        <header class="d-flex flex-wrap justify-content-center pb-2 mb-3 ">
+            <a href="/" class=" d-flex align-items-center mt-0 mb-4 mb-md-5 me-md-auto text-dark text-decoration-none"> </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="tableNADBenchmarks.pdf" target="_blank" class="nav-link">Summary</a></li>
+            <li class="nav-item"><a href="aboutus.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="https://github.com/Adiba08/NaDBenchmarks" class="nav-link">Github</a></li>
+          </ul>
+        </header>
+      </div>
+      
+    </div>    
+
+    <script>
+      function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+           document.getElementById("myUL").hidden = false;
+          a = li[i].getElementsByClassName("dts_text")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "block";  
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+      }
+      </script>
+
+    <hr>
+    <div class="w3-cell filters">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Disaster Topic
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="datasets/FloodNet.html">Atmospheric Rivers</a>
+          <a class="dropdown-item" href="#">Drought</a>
+          <a class="dropdown-item" href="#">Extreme Weather</a>
+          <a class="dropdown-item" href="#">Flood</a>
+          <a class="dropdown-item" href="#">General</a>
+          <a class="dropdown-item" href="#">Hurricane</a>
+          <a class="dropdown-item" href="#">Tornado</a>
+          <a class="dropdown-item" href="#">Tropical Cyclone</a>
+          <a class="dropdown-item" href="#">Volcanic Eruption</a>
+          <a class="dropdown-item" href="#">Wildfire</a>
+        </div>
+      </div>
+      <hr>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dataset Modality
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="datasets/FloodNet.html">Atmospheric Rivers</a>
+          <a class="dropdown-item" href="#">Drought</a>
+          <a class="dropdown-item" href="#">Extreme Weather</a>
+          <a class="dropdown-item" href="#">Flood</a>
+          <a class="dropdown-item" href="#">General</a>
+          <a class="dropdown-item" href="#">Hurricane</a>
+          <a class="dropdown-item" href="#">Tornado</a>
+          <a class="dropdown-item" href="#">Tropical Cyclone</a>
+          <a class="dropdown-item" href="#">Volcanic Eruption</a>
+          <a class="dropdown-item" href="#">Wildfire</a>
+        </div>
+      </div>
+      <hr>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ML Task Type
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="datasets/FloodNet.html">Atmospheric Rivers</a>
+          <a class="dropdown-item" href="#">Drought</a>
+          <a class="dropdown-item" href="#">Extreme Weather</a>
+          <a class="dropdown-item" href="#">Flood</a>
+          <a class="dropdown-item" href="#">General</a>
+          <a class="dropdown-item" href="#">Hurricane</a>
+          <a class="dropdown-item" href="#">Tornado</a>
+          <a class="dropdown-item" href="#">Tropical Cyclone</a>
+          <a class="dropdown-item" href="#">Volcanic Eruption</a>
+          <a class="dropdown-item" href="#">Wildfire</a>
+        </div>
+      </div>
+  
+    </div>  
+
+    <div class="dataset_list w3-cell">
+    <ul style="list-style-type: none;" id="myUL" class="listofbenchmarks">
+
+      <!-- Blog entry 9 -->
+    <li><div class="w3-card-4 custom_dts_container w3-white">
+      <div class="pic-container w3-container w3-cell ">
+        <img class="sample-pic" src="samplepics/rescuenet.png">
+      </div>
+      <div class="w3-cell dts_text">
+        <div class="w3-container w3-padding-medium">
+          <h4><b>RescueNet: A High Resolution UAV Semantic Segmentation Benchmark Dataset for Natural Disaster Damage Assessment</b></h3> <!-- paper title --> 
+          <h5> Image | Hurricane | Response </h5>  <!-- type | Topic | Disaster Phase --> 
+          <p> ML Task Type: Semantic segmentation </p>
+        </div>
+        <div class="w3-container">
+          <p>RescueNet is a dataset for hurricane damage assessment. It contains 4,494 post disaster images collected after Hurricane Michael and is introduced for semantic segmentation.</p>  <!-- data description --> 
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"> <a href="datasets/RescueNet.html"> <b> LEARN MORE »  </b> </a> </button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></li>
+    
+    <!-- Blog entry 13 -->
+    <li><div class="custom-xmargin w3-card-4 w3-white">
+      <div class="pic-container w3-container w3-cell ">
+        <img class="sample-pic" src="samplepics/floodnet.png">
+      </div>
+      <div class="w3-cell dts_text">
+        <div class="w3-container w3-padding-medium">
+          <h4><b>FloodNet: A High Resolution Aerial Imagery Dataset for Post Flood Scene Understanding </b></h3> <!-- paper title --> 
+          <h5> Image | Hurricane | Response </h5>  <!-- type | Topic | Disaster Phase --> 
+          <p> ML Task Type: Image classification, semantic segmentation, visual question answering </p>
+        </div>
+        <div class="w3-container">
+          <p>FloodNet is dataset for post-flood scene understanding, i.e flood detection and distinguishing different water bodies and flood. It contains about 11, 000 question-image pairs for VQA and 3,200 images. It is introduced for image classification, semantic segmentation, and visual question answering. </p>  <!-- data description --> 
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><button class="w3-button w3-padding-large w3-white w3-border"> <a href="datasets/FloodNet.html"> <b> LEARN MORE »  </b> </a> </button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></li>
+    </ul>
+
+  </div> <!--End of datasets_list-->
+
+
+
+  </body>
+</html>

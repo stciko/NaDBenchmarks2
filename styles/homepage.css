@@ -1,0 +1,115 @@
+/* _________________header____________________*/  
+.top-border{
+    background-color: rgb(49, 116, 49);
+    height: 2px;
+
+}
+.header{
+    height: 85px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    justify-content: space-between;
+    background-color: #A1BE95;
+
+}
+.left-section{
+  font-weight: bold;
+
+    width: 200px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    
+}
+.middle-section{
+    flex: 1;
+}
+
+.right-section{
+    width: 420px;
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+}
+
+ /* __________________body____________________*/
+  
+ body,h1,h2,h3,h4,h5 {
+  font-family: Arial, sans-serif;
+  }
+  h1 {
+    text-align: center;
+    padding: 15px 30px 20px;  /*top left/right bottom*/ 
+    }
+  a:link, a:visited, a:hover, a:active{
+    color: black;
+  }  
+   
+/* _________________search____________________*/  
+  .search{
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);  
+   }
+  
+  .search input{
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+  }
+  
+  .search input:focus{
+    box-shadow: none;
+    border: 2px dodgerblue;
+    }
+  
+  .search .fa-search{
+    position: absolute;
+    top: 20px;
+    left: 16px;
+  }
+  
+   .search button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    width: 110px;
+    background-color: dodgerblue;
+    
+  }
+
+
+/* _________________datasets____________________*/  
+.dataset_list{
+  padding-right: 16px;
+}
+
+.custom_dts_container{
+  border-radius: 8px; 
+  margin-bottom: 20px;
+}
+
+.filters{
+  padding-left: 16px;
+  width: 250px;
+}
+.pic-container{
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;  
+  background-color: #e4ece1;
+}
+.sample-pic{
+  width:190px;
+  margin-top: 35px;
+  
+  
+  /*
+  object-position: center;
+  padding-top: 20px;
+  object-fit: cover;
+  */
+}
+
