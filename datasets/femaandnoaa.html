@@ -52,35 +52,35 @@
 
     <div class="w3-container">
     <div class="w3-container border-top">
-      <h3><b>EarthNet2021: A novel large-scale dataset and challenge for forecasting localized climate impacts</b></h3> <!-- Title --> 
-      <h5 > Video | Etreme Weather | Prevention  </h5> <!-- Type | Topic | Disaster phase --> 
+      <h3><b>Benchmark Dataset for Automatic Damaged Building Detection from Post-Hurricane Remotely Sensed Imagery</b></h3> <!-- Title --> 
+      <h5 > Multimodal (Vector data and Image) | Hurricane | Response </h5> <!-- Type | Topic | Disaster phase --> 
     </div>
     <div class="w3-cell-row" > <!-- style="width:95%" -->
       <div class="dataset-pic-container w3-container w3-cell">
-        <img class="sample-pic2" src="../samplepics/multicube.png">
-        
+        <img class="sample-pic2" src="../samplepics/12femaandnoaa.png">
+   
 
         <hr>
-        <button class="w3-button w3-light-grey w3-round-large"><a href="https://arxiv.org/abs/2012.06246" target="_blank">Paper</a> </button>
+        <button class="w3-button w3-light-grey w3-round-large"><a href="https://arxiv.org/abs/1812.05581" target="_blank">Paper</a> </button>
 
       </div>
 
       <div class="w3-cell">
         
         <div class="w3-container"> <!-- Data description --> 
-            <p> EarthNet2021 is a dataset for Earth surface forecasting, extreme summer prediction, and seasonal cycle prediction. It contains more than 32,000 samples containing Sentinel 2 level 2A imagery and daily climatic conditions. This dataset is introduced for video prediction.</p>
+            <p> FEMA and NOAA is a dataset for hurricane damaged building detection. It contains vector (FEMA) and image (NOAA) data and is introduced for image segmentation and multiclass (ordinal) classification.</p>
     
           <div>
             <div class="bd-example-snippet bd-code-snippet">
               <div class="bd-example">
                 <ul class="list-group"> <!-- change the parts after strong --> 
                   <!-- <li class="list-group-item disabled" aria-disabled="true">A disabled item</li> -->
-                  <li class="list-group-item"> <strong>ML task type:</strong> Video prediction </li>
-                  <li class="list-group-item"><strong>Data Source:</strong> Earth Observation Data and GeoSpatial Imagery (Satellite)</li> 
-                  <li class="list-group-item"><strong>Size:</strong> >32,000 Multicube samples with satellite imagery and climatic conditions </li>
-                  <li class="list-group-item"><strong>Timespan:</strong> 2018 (Extreme summer track)</li>
-                  <li class="list-group-item"> <strong>Geographical Coverage:</strong> Europe</li>
-                  <li class="list-group-item"><strong>Published:</strong> 2020 </li>
+                  <li class="list-group-item"> <strong>ML task type:</strong> Image segmentation, multiclass (ordinal) classification </li>
+                  <li class="list-group-item"><strong>Data Source:</strong> Official Data (national); Earth Observation Data and GeoSpatial Imagery</li> 
+                  <li class="list-group-item"><strong>Size:</strong> Around 156,099 damage assessments (FEMA original data); 400 GB Images (NOAA original data) </li>
+                  <li class="list-group-item"><strong>Timespan:</strong> 2017</li>
+                  <li class="list-group-item"> <strong>Geographical Coverage:</strong> Greater Houston Area</li>
+                  <li class="list-group-item"><strong>Published:</strong> 2018 </li>
 
                 </ul>
               </div>
@@ -98,7 +98,7 @@
                       </h4>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                           <div class="accordion-body">
-                            <input type="text" id="clipboardExample1" class="form-control" value="Christian Requena-Mesa, Vitus Benson, Joachim Denzler, Jakob Runge, and Markus Reichstein. EarthNet2021: A novel large-scale dataset and challenge for forecasting localized climate impacts. arXiv preprint arXiv:2012.06246, 2020.">
+                            <input type="text" id="clipboardExample1" class="form-control" value="Sean Andrew Chen, Andrew Escay, Christopher Haberland, Tessa Schneider, Valentina Staneva, and Youngjun Choe. Benchmark dataset for automatic damaged building detection from post-hurricane remotely sensed imagery. arXiv preprint arXiv:1812.05581, 2018. ">
                             <div class="mt-3">
                               <button type="button" class="btn w3-light-grey btn-clipboard" data-clipboard-action="copy" data-clipboard-target="#clipboardExample1">Copy</button>
                             </div>
@@ -117,24 +117,22 @@
     </div> 
 
     <div class="w3-container more_info_head">
-      <h4>More Information</h4>
-      <div class="more_info">
-        <h5>Multicube Samples</h5>
-        <p>An overview visualization of a single sample (Requena-Mesa et al.)</p>
-        <div >
-          <img class="moreinfo_pic" src="../samplepics/6earthnet_add1.png">
+        <h4>More Information</h4>
+        <div class="more_info">
+          <h5>Overview</h5>
+          <p>Process of obtaining bounding boxes from FEMA
+            damage points (Chen et al.)</p>
+          <div class="w3-cell">
+            <img class="moreinfo_pic" src="../samplepics/12fema_add1.png">
+          </div>
+          <div class="w3-cell">
+            <img class="moreinfo_pic" src="../samplepics/12fema_add2.png">
+          </div>
+          <hr>
+  
+  
         </div>
-        <hr>
-        <div >
-            <h5>Coverage</h5>
-            <p>  Panel (a) shows the spatial distribution of the multicubes in EarthNet2021. Panel (b) shows
-                the monthly number of multicubes and panel (c) shows the data quality measured by the percentage
-                of masked (mainly cloudy) pixels over both, months and latitude (Requena-Mesa et al.)</p>
-             <img class="moreinfo_pic" src="../samplepics/6earthnet_add2.png">
-        </div>
-        <hr>
       </div>
-    </div>
 
   </div>
 
