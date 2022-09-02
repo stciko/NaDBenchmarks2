@@ -109,15 +109,15 @@
 .sample-pic{
   width:190px;
   margin-top: 35px;
-  
-  
-  /*
-  object-position: center;
-  padding-top: 20px;
-  object-fit: cover;
-  */
-}
 
+}
+.sample-pic-big{
+  width:150px;
+  margin-top: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
 .cite_margin{
   margin-left: 300px;
   margin-right: 300px;
