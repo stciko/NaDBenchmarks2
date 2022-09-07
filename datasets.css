@@ -23,7 +23,7 @@ span {
 /* Containers */
 
 .similar-dts{
-  width:300px;
+  width:270px;
   /*background-color: #f4f8f5;*/
   border-radius: 15px;
 }
@@ -40,7 +40,7 @@ span {
   overflow: auto;
 }
 .smlr-section{
-  margin-top: 3%;
+  margin-top: 4%;
   margin-right: 5%;
   border-radius: 7px;
   background-color: white ;
@@ -49,8 +49,8 @@ span {
 
 .smlr-title{
   display: flex;
-  background-color: rgb(49, 116, 49);
-  color: white;
+  background-color: rgb(214, 214, 214);
+  color: rgb(0, 0, 0);
 }
 .smlr-paper{
   display: flex;
@@ -58,7 +58,7 @@ span {
   font-size: smaller;
   padding-top: 0px;
   border-bottom: solid;
-  border-color: rgb(128, 128, 128,0.1);
+  border-color: rgba(128, 128, 128, 0.527);
 }
 
 .rightmost-margin{
