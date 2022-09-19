@@ -18,7 +18,7 @@
 
   </head>
 
-  <body style="background-color: white;">
+  <body style="background-color: white;"  onload= "filterSelection('all')">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <div class="top-border">
       
@@ -78,83 +78,146 @@
         }
       }
 
+      filterSelection("all")
+      function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+          w3RemoveClass(x[i], "show");
+          if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+        // check and activate clicked button on any of the three filter sections
+        activate("myBtnContainer1")
+        activate("myBtnContainer2")
+        activate("myBtnContainer3")
+      
+
+      }
+
+      function activate(elemID) {
+        // Add active class to the current control button (highlight it)
+        var btnContainer = document.getElementById(elemID);
+          var btns = btnContainer.getElementsByClassName("btn");
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+            });
+          }
+      }
+
+      // Show filtered elements
+      function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+          }
+        }
+      }
+
+      // Hide elements that are not selected
+      function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+          while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+          }
+        }
+        element.className = arr1.join(" ");
+      }
+
+      
+
       </script>
     <!---------FILTER SECTION ------------->
+   
+
     <hr>
     <div class="w3-cell filters">
       <div class="dropdown">
-        <button class="btn w3-light-grey dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn w3-blue-grey myWidth dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Disaster Topic
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Atmospheric Rivers</a>
-          <a class="dropdown-item" href="#">Drought</a>
-          <a class="dropdown-item" href="#">Extreme Weather</a>
-          <a class="dropdown-item" href="#">Flood</a>
-          <a class="dropdown-item" href="#">General</a>
-          <a class="dropdown-item" href="#">Hurricane</a>
-          <a class="dropdown-item" href="#">Tornado</a>
-          <a class="dropdown-item" href="#">Tropical Cyclone</a>
-          <a class="dropdown-item" href="#">Volcanic Eruption</a>
-          <a class="dropdown-item" href="#">Wildfire</a>
+        <div id="myBtnContainer1" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <button class="choices btn " onclick="filterSelection('all')"> Show all</button>
+          <button class="choices btn" onclick="filterSelection('atmriver')"> Atmospheric Rivers</button>
+          <button class=" choices btn" onclick="filterSelection('drought')"> Drought</button>
+          <button class="choices btn" onclick="filterSelection('extrweather')"> Extreme Weather</button>
+          <button class="choices btn" onclick="filterSelection('flood')"> Flood</button>
+          <button class="choices btn" onclick="filterSelection('general')"> General</button>
+          <button class="choices btn" onclick="filterSelection('hurricane')"> Hurricane</button>
+          <button class="choices btn" onclick="filterSelection('tornado')"> Tornado</button>
+          <button class="choices btn" onclick="filterSelection('tropcycl')"> Tropical Cyclone</button>
+          <button class="choices btn" onclick="filterSelection('volcano')"> Volcanic Eruption</button>
+          <button class="choices btn" onclick="filterSelection('wildfire')"> Wildfire</button>
         </div>
       </div>
       <hr>
       <div class="dropdown">
-        <button class="btn w3-light-grey dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn w3-blue-grey myWidth dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dataset Modality
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Image</a>
-          <a class="dropdown-item" href="#">Multimodal</a>
-          <a class="dropdown-item" href="#">Numerical</a>
-          <a class="dropdown-item" href="#">Text</a>
-          <a class="dropdown-item" href="#">Vector Data</a>
-          <a class="dropdown-item" href="#">Video</a>
+        <div id="myBtnContainer2" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <button class="choices btn " onclick="filterSelection('all')"> Show all</button>
+          <button class="choices btn" onclick="filterSelection('image')"> Image</button>
+          <button class=" choices btn" onclick="filterSelection('multimodal')"> Multimodal</button>
+          <button class="choices btn" onclick="filterSelection('numerical')"> Numerical</button>
+          <button class="choices btn" onclick="filterSelection('textual')"> Text</button>
+          <button class="choices btn" onclick="filterSelection('vector')"> Vector Data</button>
+          <button class="choices btn" onclick="filterSelection('video')"> Video</button>
         </div>
       </div>
       <hr>
       <div class="dropdown">
-        <button class="btn w3-light-grey dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ML Task Type
+        <button class="btn w3-blue-grey myWidth dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ML Task
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Binary Classification</a>
-          <a class="dropdown-item" href="#">Image Classification</a>
-          <a class="dropdown-item" href="#">Image Segmentation</a>
-          <a class="dropdown-item" href="#">Multiclass (Ordinal) Classification</a>
-          <a class="dropdown-item" href="#">Multiclass Classification</a>
-          <a class="dropdown-item" href="#">Multiclass Multilabel Classification</a>
-          <a class="dropdown-item" href="#">Multiclass Segmentation</a>
-          <a class="dropdown-item" href="#">Multilabel Classification</a>
-          <a class="dropdown-item" href="#">Multitask Learning</a>
-          <a class="dropdown-item" href="#">Semantic Segmentation</a>
-          <a class="dropdown-item" href="#">Video Prediction</a>
-          <a class="dropdown-item" href="#">Visual Question Answering</a>
+        <div id="myBtnContainer3" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <button class="choices btn" onclick="filterSelection('all')"> Show all</button>
+          <button class="choices btn" onclick="filterSelection('binclass')"> Binary Classification</button>
+          <button class=" choices btn" onclick="filterSelection('imclass')"> Image Classification</button>
+          <button class="choices btn" onclick="filterSelection('imseg')">  Image Segmentation</button>
+          <button class="choices btn" onclick="filterSelection('mclass_ordclass')"> Multiclass (Ordinal) Classification</button>
+          <button class="choices btn" onclick="filterSelection('mclass_class')"> Multiclass Classification</button>
+          <button class="choices btn" onclick="filterSelection('mclass_mlab_class')"> Multiclass Multilabel Classification</button>
+          <button class="choices btn" onclick="filterSelection('mclass_seg')"> Multiclass Segmentation</button>
+          <button class="choices btn" onclick="filterSelection('mlab_class')"> Multilabel Classification</button>
+          <button class="choices btn" onclick="filterSelection('mtask_learn')">  Multitask Learning</button>
+          <button class="choices btn" onclick="filterSelection('semseg')"> Semantic Segmentation</button>
+          <button class="choices btn" onclick="filterSelection('vidpred')"> Video Prediction</button>
+          <button class="choices btn" onclick="filterSelection('vqa')"> Visual Question Answering</button>
 
         </div>
       </div>
-  
     </div>  
 
-     <!---------------DATASET LIST-------------------->
+     <!-----------------------------------DATASET LIST------------------------------------------------------------>
     <div class="dataset_list w3-cell">
     <ul style="list-style-type: none;" id="myUL" class="listofbenchmarks">
 
 
     <!-- BLOG ENTRY 1 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li>
+      <div class="w3-card-4 custom_dts_container w3-white filterDiv flood image mclass_seg binclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/1spacenet.png">
       </div>
       <div class="w3-cell dts_text">
         <div class="w3-container w3-padding-medium">
           <h4><b>SpaceNet 8 - The Detection of Flooded Roads and Buildings</b></h3> <!-- paper title --> 
-          <h5> Image | Flood | Preparedness </h5>  <!-- type | Topic | Disaster Phase --> 
-          <p> ML Task Type: Multi-class segmentation, binary classification  </p>
+          <h5 > Image | Flood | Preparedness </h5>  <!-- type | Topic | Disaster Phase --> 
+          <p> ML Task Type: Multiclass segmentation + binary classification  </p>
         </div>
         <div class="w3-container">
-          <p> SpaceNet 8 is flood-disaster dataset for building detection, road network extraction and flood detection. It covers 850km^2, including 32k buildings and 1,300km roads. It is introduced for multi-class segmentation and binary classification.</p>
+          <p> SpaceNet 8 is flood-disaster dataset for building detection, road network extraction and flood detection. It covers 850km^2, including 32k buildings and 1,300km roads. It is introduced for multiclass segmentation and binary classification.</p>
           <div class="w3-row">
             <div class="w3-col m8 s12">
               <p><button class="w3-button w3-padding-large w3-white w3-border"> <a href="datasets/spacenet8.html"> <b> LEARN MORE »  </b> </a> </button></p>
@@ -165,7 +228,7 @@
     </div></li>
 
     <!-- Blog entry 2 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/2xbd2.png">
       </div>
@@ -187,7 +250,7 @@
     </div></li>
 
      <!-- Blog Entry 3 -->
-     <li><div class="w3-card-4 custom_dts_container w3-white">
+     <li><div class="w3-card-4 custom_dts_container w3-white filterDiv volcano image binclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/3hephasteus.png">
       </div>
@@ -209,7 +272,7 @@
     </div></li>
 
     <!-- Blog Entry 4 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv drought numerical mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/numerical.png">
       </div>
@@ -231,7 +294,7 @@
     </div></li>
 
          <!-- Blog Entry 5 -->
-     <li><div class="w3-card-4 custom_dts_container w3-white">
+     <li><div class="w3-card-4 custom_dts_container w3-white filterDiv wildfire image binclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/5figlib.png">
       </div>
@@ -253,14 +316,14 @@
     </div></li>
 
     <!-- Blog Entry 6 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv extrweather video vidpred">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/multicubesamples.png">
       </div>
       <div class="w3-cell dts_text">
         <div class="w3-container w3-padding-medium">
           <h4><b>EarthNet2021: A novel large-scale dataset and challenge for forecasting localized climate impacts</b></h3> <!-- paper title --> 
-          <h5>  Video | Etreme Weather | Prevention  </h5>  <!-- type | Topic | Disaster Phase --> 
+          <h5>  Video | Extreme Weather | Prevention  </h5>  <!-- type | Topic | Disaster Phase --> 
           <p> ML Task Type: Video prediction  </p>
         </div>
         <div class="w3-container">
@@ -275,7 +338,7 @@
     </div></li>
 
     <!-- Blog Entry 7 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general textual binclass mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/text.png">
       </div>
@@ -298,7 +361,7 @@
     
 
     <!-- BLOG ENTRY 8 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv wildfire image imseg">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/8nextdaywildfire.png">
       </div>
@@ -321,7 +384,7 @@
 
 
     <!-- Blog entry 9 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv hurricane image semseg">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/9rescuenet.png">
       </div>
@@ -343,7 +406,7 @@
     </div></li>  
 
     <!-- BLOG ENTRY 10 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv hurricane tornado video imseg mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/10msnet.png">
       </div>
@@ -366,7 +429,7 @@
 
 
      <!-- BLOG ENTRY 11 -->
-     <li><div class="w3-card-4 custom_dts_container w3-white">
+     <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general textual mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/text.png">
       </div>
@@ -389,7 +452,7 @@
     
 
     <!-- BLOG ENTRY 12 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv hurricane multimodal image vector imseg mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/12femaandnoaa.png">
       </div>
@@ -397,7 +460,7 @@
         <div class="w3-container w3-padding-medium">
           <h4><b>Benchmark Dataset for Automatic Damaged Building Detection from Post-Hurricane Remotely Sensed Imagery</b></h3> <!-- paper title --> 
           <h5> Multimodal (Vector data and Image) | Hurricane | Response </h5>  <!-- type | Topic | Disaster Phase --> 
-          <p> ML Task Type:  Image segmentation, multiclass (ordinal) classification  </p>
+          <p> ML Task Type:  Image segmentation + multiclass (ordinal) classification  </p>
         </div>
         <div class="w3-container">
           <p> FEMA and NOAA is a dataset for hurricane damaged building detection. It contains vector (FEMA) and image (NOAA) data and is introduced for image segmentation and multiclass (ordinal) classification.</p>
@@ -411,7 +474,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 13 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv hurricane image imclass semseg vqa">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/13floodnet.png">
       </div>
@@ -433,7 +496,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 14 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_mlab_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/14activelearning.png">
       </div>
@@ -456,7 +519,7 @@
 
 
     <!-- BLOG ENTRY 15 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/15incidents.png">
       </div>
@@ -479,7 +542,7 @@
     
 
     <!-- BLOG ENTRY 16 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_mlab_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/16incidents1m.png">
       </div>
@@ -501,7 +564,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 17 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general video mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics//17vidi.png">
       </div>
@@ -524,7 +587,7 @@
 
 
     <!-- BLOG ENTRY 18 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv flood image binclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/18medieval.png">
       </div>
@@ -547,7 +610,7 @@
     
 
     <!-- BLOG ENTRY 19 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv flood image mlab_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/19mediaeval.png">
       </div>
@@ -569,7 +632,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 20 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mtask_learn">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/20medic.png">
       </div>
@@ -591,7 +654,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 21 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv atmriver tropcycl image semseg mlab_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/21climatenet.png">
       </div>
@@ -613,7 +676,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 22 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv flood image imseg">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/22curatingflood.png">
       </div>
@@ -635,7 +698,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 23 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_mlab_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/23imagesentiment.png">
       </div>
@@ -657,7 +720,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 24 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general multimodal image textual binclass mclass_class mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/24crisismmd.png">
       </div>
@@ -679,7 +742,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 25 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general image mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/25damageassessment.png">
       </div>
@@ -701,7 +764,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 26 -->
-    <li><div class="w3-card-4 custom_dts_container w3-white">
+    <li><div class="w3-card-4 custom_dts_container w3-white filterDiv general multimodal image textual mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic-big" src="samplepics/26damageident.png">
       </div>
@@ -724,13 +787,13 @@
 
     <!-- BLOG ENTRY 27-30 -->
     <li><div>
-      <div class="w3-card-4 custom_dts_container dts_text w3-white">
+      <div class="w3-card-4 custom_dts_container dts_text w3-white filterDiv general image ">
         <div class="w3-container dts_text w3-padding-large">
           <h4><b> Deep Learning Benchmarks and Datasets for Social Media Image Classification for Disaster Response</b></h4> <!-- paper title --> 
           <h5> This paper introduces four different datasets for four different ML tasks: </h5>  
         </div>
       
-    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white">
+    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white filterDiv general image mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/27deeplearning.png">
       </div>
@@ -752,7 +815,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 28 -->
-    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white">
+    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white filterDiv general image binclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/28deeplearn.png">
       </div>
@@ -774,7 +837,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 29 -->
-    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white">
+    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white filterDiv general image mclass_class">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/29deeplearn.png">
       </div>
@@ -796,7 +859,7 @@
     </div></li>
 
     <!-- BLOG ENTRY 30 -->
-    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white">
+    <li><div class="w3-card-4 custom_dts_container inner_dts w3-white filterDiv general image mclass_ordclass">
       <div class="pic-container w3-container w3-cell ">
         <img class="sample-pic" src="samplepics/30deeplearn.png">
       </div>

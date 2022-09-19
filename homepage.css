@@ -1,3 +1,12 @@
+.show {
+  display: block;
+}
+.filterDiv {
+  
+  display: none; /* Hidden by default */
+}
+
+
 /* _________________header____________________*/  
 .top-border{
     background-color: rgb(49, 116, 49);
@@ -32,6 +41,22 @@
     display: flex;
     margin-right: 10px;
     align-items: center;
+}
+
+/* _________________filters____________________*/  
+.myWidth{
+  text-align:right;
+  width: 150px;
+}
+
+.filters{
+  padding-left: 16px;
+  width: 190px;
+}
+
+.choices{
+  margin-top: 3px;
+  background-color: rgb(200, 224, 230);
 }
 
  /* __________________body____________________*/
@@ -83,7 +108,7 @@
 
 /* _________________datasets____________________*/  
 .dataset_list{
-  padding-right: 16px;
+  padding-right: 100px;
 }
 
 .custom_dts_container{
@@ -96,10 +121,7 @@
   margin-right: 20px;
 }
 
-.filters{
-  padding-left: 16px;
-  width: 250px;
-}
+
 .pic-container{
   width: 200px;
   height: 200px;
